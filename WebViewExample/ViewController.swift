@@ -12,6 +12,8 @@ import Webkit
 class ViewController: UIViewController
 {
 
+     @IBOutlet weak var myWebKitView: WKWebView!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -49,8 +51,20 @@ class ViewController: UIViewController
             {
                 print("Can't Go back")
             }
+          case 2:
+            if myWebKitView.canGoForward
+            {
+               print("Go Next")
+                myWebKitView.goForward()
+            }
+            else 
+            {
+                print("Can't Go Next")
+            }
+         case 3:
+            myWebKitView.reload()
         default:
-            print("No Navigation action found...")
+            print("No Navigation action found")
         }
     }
     
